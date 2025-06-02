@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="text-center"><i class="fas fa-flask me-2"></i>Diabetes Risk Assessment</h3>
+                </div>
+                <div class="card-body">
+                    <p class="lead text-center mb-4">
+                        Fill in your health metrics to assess your diabetes risk
+                    </p>
+                    
+                    <form action="/predict" method="post" class="needs-validation" novalidate>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="Pregnancies" class="form-label">Pregnancies</label>
+                                <input type="number" class="form-control" id="Pregnancies" name="Pregnancies" required>
+                                <div class="invalid-feedback">Please enter a valid number.</div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="Glucose" class="form-label">Glucose (mg/dL)</label>
+                                <input type="number" step="0.1" class="form-control" id="Glucose" name="Glucose" required>
+                                <div class="invalid-feedback">Please enter glucose level.</div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="BloodPressure" class="form-label">Blood Pressure (mm Hg)</label>
+                                <input type="number" step="0.1" class="form-control" id="BloodPressure" name="BloodPressure" required>
+                                <div class="invalid-feedback">Please enter blood pressure.</div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="SkinThickness" class="form-label">Skin Thickness (mm)</label>
+                                <input type="number" step="0.1" class="form-control" id="SkinThickness" name="SkinThickness" required>
+                                <div class="invalid-feedback">Please enter skin thickness.</div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="Insulin" class="form-label">Insulin (μU/mL)</label>
+                                <input type="number" step="0.1" class="form-control" id="Insulin" name="Insulin" required>
+                                <div class="invalid-feedback">Please enter insulin level.</div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="BMI" class="form-label">BMI (kg/m²)</label>
+                                <input type="number" step="0.1" class="form-control" id="BMI" name="BMI" required>
+                                <div class="invalid-feedback">Please enter BMI.</div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="DiabetesPedigreeFunction" class="form-label">Diabetes Pedigree Function</label>
+                                <input type="number" step="0.001" class="form-control" id="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction" required>
+                                <div class="invalid-feedback">Please enter valid value.</div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="Age" class="form-label">Age (years)</label>
+                                <input type="number" class="form-control" id="Age" name="Age" required>
+                                <div class="invalid-feedback">Please enter your age.</div>
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid gap-2 mt-4">
+                            <button class="btn btn-primary btn-lg" type="submit">
+                                <i class="fas fa-calculator me-2"></i>Calculate Risk
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="card shadow-lg mt-4">
+                <div class="card-body text-center">
+                    <h5 class="card-title"><i class="fas fa-info-circle me-2"></i>What This Tool Does</h5>
+                    <p class="card-text">
+                        Our advanced machine learning model analyzes your health metrics to predict the likelihood of diabetes.
+                        This is not a substitute for professional medical advice.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Form validation
+(function () {
+    'use strict'
+    
+    var forms = document.querySelectorAll('.needs-validation')
+    
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                
+                form.classList.add('was-validated')
+            }, false)
+        })
+})()
+</script>
+{% endblock %}

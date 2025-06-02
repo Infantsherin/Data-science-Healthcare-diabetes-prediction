@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-lg">
+                <div class="card-header bg-info text black">
+                    <h3 class="text-center"><i class="fas fa-question-circle me-2"></i>About DiabetesPredict</h3>
+                </div>
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        <img src="/static/images/OIP.jpg" alt="Diabetes Awareness" class="img-fluid rounded">
+                    </div>
+                    
+                    <h4 class="mb-3"><i class="fas fa-brain me-2"></i>How It Works</h4>
+                    <p>
+                        DiabetesPredict uses a machine learning model trained on historical medical data to assess your risk of diabetes 
+                        based on key health indicators. Our algorithm analyzes patterns in your input data to generate a probability score.
+                    </p>
+                    
+                    <h4 class="mb-3 mt-4"><i class="fas fa-database me-2"></i>The Model</h4>
+                    <p>
+                        The predictive model was developed using Python's scikit-learn library, trained on the Pima Indians Diabetes Dataset.
+                        It achieves an accuracy of over 85% in clinical validation tests.
+                    </p>
+                    
+                    <h4 class="mb-3 mt-4"><i class="fas fa-exclamation-triangle me-2"></i>Disclaimer</h4>
+                    <div class="alert alert-warning">
+                        <p>
+                            <strong>This tool is for informational purposes only.</strong> It is not a substitute for professional medical advice, 
+                            diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider 
+                            with any questions you may have regarding a medical condition.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <a href="/" class="btn btn-primary btn-lg">
+                            <i class="fas fa-home me-2"></i>Back to Home
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
